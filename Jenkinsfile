@@ -18,7 +18,7 @@ pipeline {
         }
       }
     }
-    stage('Deploy Image') {
+    stage('Push Image to Docker Hub') {
       steps{
         script {
           docker.withRegistry( '', registryCredential ) {
@@ -27,6 +27,9 @@ pipeline {
         }
       }
     }
+     stage('Depoly container with newly created image') {
+        dockerCmd "run -d -p 9000:80 --name 'php-web-app' diquzart/php-webapp:$BUILD_NUMBER"
+     }
     stage('Remove Unused docker image') {
       steps{
         sh "docker rmi $registry:$BUILD_NUMBER"
