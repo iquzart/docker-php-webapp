@@ -27,7 +27,13 @@ pipeline {
         }
       }
     }
-     stage('Depoly container with newly created image') {
+    stage('Remove running version of the application') {
+       steps{
+        sh "docker docker rm --force php-web-app"
+       }
+     }
+
+    stage('Depoly container with newly created image') {
        steps{
         sh "docker run -d -p 9000:80 --name 'php-web-app' diquzart/php-webapp:$BUILD_NUMBER"
        }
