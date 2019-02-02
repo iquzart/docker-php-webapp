@@ -38,10 +38,10 @@ pipeline {
         sh "docker run -d -p 9000:80 --name 'php-web-app' diquzart/php-webapp:$BUILD_NUMBER"
        }
      }
-    stage('Remove Unused docker image') {
-      steps{
-        sh "docker rmi $registry:$(echo $BUILD_NUMBER-1 | bc)"
-      }
-    }
+/*   stage('Remove Unused docker image') {
+     steps{
+       sh "docker rmi $registry:$(echo $BUILD_NUMBER-1 | bc)"
+     }
+    } */
   }
 }
