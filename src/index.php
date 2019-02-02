@@ -1,4 +1,4 @@
 <?php
-$welcome = "Build from Jenkins";
+$welcome = "Docker Build pipeline test using Jenkinsfile.";
 echo $welcome;
 ?>
