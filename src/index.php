@@ -1,4 +1,4 @@
 <?php
-$welcome = "Hello World 3";
+$welcome = "Build from Jenkins";
 echo $welcome;
 ?>
