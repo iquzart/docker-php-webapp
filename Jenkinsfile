@@ -29,7 +29,7 @@ pipeline {
     }
     stage('Remove running version of the application') {
        steps{
-        sh "docker docker rm  php-web-app"
+        sh "docker rm -f php-web-app"
        }
      }
 
