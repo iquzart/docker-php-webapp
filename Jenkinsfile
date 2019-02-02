@@ -29,7 +29,7 @@ pipeline {
     }
      stage('Depoly container with newly created image') {
        steps{
-        dockerCmd "run -d -p 9000:80 --name 'php-web-app' diquzart/php-webapp:$BUILD_NUMBER"
+        sh "docker run -d -p 9000:80 --name 'php-web-app' diquzart/php-webapp:$BUILD_NUMBER"
        }
      }
     stage('Remove Unused docker image') {
