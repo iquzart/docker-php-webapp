@@ -46,7 +46,7 @@ pipeline {
     } */
    stage('Depoly container on Kubernetes') {
        steps{
-        sh "kubectl run php-webapp --image=diquzart/php-webapp:$BUILD_NUMBER --port=80"
+        sh "kubectl create php-webapp --image=diquzart/php-webapp:$BUILD_NUMBER --port=80"
        }
      }
   }
