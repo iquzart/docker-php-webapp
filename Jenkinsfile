@@ -27,11 +27,11 @@ pipeline {
         }
       }
     }
-    stage('Remove running version of the application') {
-       steps{
-        sh "docker rm -f php-web-app"
-       }
-     }
+    //stage('Remove running version of the application') {
+      // steps{
+        //sh "docker rm -f php-web-app"
+       //}
+     //}
 
     stage('Depoly container with newly created image') {
        steps{
