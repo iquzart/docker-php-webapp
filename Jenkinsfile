@@ -27,21 +27,27 @@ pipeline {
         }
       }
     }
-    //stage('Remove running version of the application') {
-      // steps{
-        //sh "docker rm -f php-web-app"
-       //}
-     //}
-
+/*    stage('Remove running version of the application') {
+       steps{
+        sh "docker rm -f php-web-app"
+       }
+     } */
+ 
+/*
     stage('Depoly container with newly created image') {
        steps{
         sh "docker run -d -p 9000:80 --name 'php-web-app' diquzart/php-webapp:$BUILD_NUMBER"
        }
      }
-/*   stage('Remove Unused docker image') {
+   stage('Remove Unused docker image') {
      steps{
        sh "docker rmi $registry:$(echo $BUILD_NUMBER-1 | bc)"
      }
     } */
+   stage('Depoly container on Kubernetes') {
+       steps{
+        sh "kubectl run --image=diquzart/php-webapp:$BUILD_NUMBER --port=80 --env="DOMAIN=cluster"
+       }
+     }
   }
 }
