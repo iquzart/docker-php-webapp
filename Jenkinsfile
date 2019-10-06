@@ -1,7 +1,7 @@
 pipeline {
   environment {
     registry = "diquzart/php-webapp"
-    registryCredential = 'Docker Hub'
+    //registryCredential = 'Docker Hub'
     dockerImage = ''
   }
   agent any
