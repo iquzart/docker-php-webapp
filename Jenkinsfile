@@ -46,7 +46,7 @@ pipeline {
     } */
    stage('Depoly container on Kubernetes') {
        steps{
-        sh "/usr/local/bin/helm --install --wait --set image.repository=${registry},image.tag=${BUILD_NUMBER} test ./chart"
+        sh "/usr/local/bin/helm update --install --wait --set image.repository=${registry},image.tag=${BUILD_NUMBER} test ./chart"
          /*kubectl run --generator=run-pod/v1 php-webapp --image=diquzart/php-webapp:$BUILD_NUMBER --port=80"*/
        }
      }
