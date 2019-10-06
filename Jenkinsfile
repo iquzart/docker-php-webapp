@@ -46,7 +46,8 @@ pipeline {
     } */
    stage('Depoly container on Kubernetes') {
        steps{
-        sh "kubectl run --generator=run-pod/v1 php-webapp --image=diquzart/php-webapp:$BUILD_NUMBER --port=80"
+        sh "helm list"
+         /*kubectl run --generator=run-pod/v1 php-webapp --image=diquzart/php-webapp:$BUILD_NUMBER --port=80"*/
        }
      }
   }
