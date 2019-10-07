@@ -24,3 +24,17 @@ steps:
     repository: 'diquzart/php-webapp'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
+
+- task: HelmDeploy@0
+  inputs:
+    connectionType: 'Kubernetes Service Connection'
+    kubernetesServiceConnection: 'minikube-default-1570435914912'
+    namespace: 'default'
+    command: 'upgrade'
+    chartType: 'FilePath'
+    chartPath: '**/chart'
+    releaseName: 'az-pipeline-test'
+    recreate: true
+    resetValues: true
+    force: true
+    tillerNamespace: 'kube-system'
