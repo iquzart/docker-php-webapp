@@ -1,4 +1,4 @@
 <?php
-$welcome = "Rolling - Helm pipeline test using Jenkinsfile.";
+$welcome = "Az pipeline - Helm pipeline test using Jenkinsfile.";
 echo $welcome;
 ?>
