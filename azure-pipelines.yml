@@ -32,7 +32,7 @@ steps:
 - task: HelmDeploy@0
   inputs:
     connectionType: 'Kubernetes Service Connection'
-    kubernetesServiceConnection: 'minikube-kube-system-1570440597957'
+    kubernetesServiceConnection: 'GKE'
     namespace: 'default'
     command: 'upgrade'
     chartType: 'FilePath'
