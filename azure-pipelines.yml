@@ -5,7 +5,11 @@
 
 trigger:
 - master
-
+- task: Docker@2
+  inputs:
+    repository: 'diquzart/php-webapp'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
 pool:
   vmImage: 'ubuntu-latest'
 
@@ -24,3 +28,6 @@ steps:
 
 - script: composer install --no-interaction --prefer-dist
   displayName: 'composer install'
+- task: HelmInstaller@1
+  inputs:
+    helmVersionToInstall: 'latest'
