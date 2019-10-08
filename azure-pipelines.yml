@@ -37,7 +37,7 @@ steps:
     command: 'upgrade'
     chartType: 'FilePath'
     chartPath: '**/chart'
-    releaseName: 'pipeline'
+    releaseName: 'dev'
     overrideValues: 'image.tag=$(Build.BuildId)'
     recreate: true
     force: true
